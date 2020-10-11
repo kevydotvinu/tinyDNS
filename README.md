@@ -45,6 +45,7 @@ podman run --rm \
            --privileged \
            --net host \
            --volume "$(pwd)/dnsmasq.conf:/etc/dnsmasq.conf" \
+           --volume "$(pwd)/dns.conf:/etc/dnsmasq.d/dns.conf" \
            --security-opt label=disable \
            --name tinydns localhost/kevydotvinu/tinydns:v1
 ```
