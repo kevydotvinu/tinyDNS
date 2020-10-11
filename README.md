@@ -49,3 +49,4 @@ podman run --rm \
            --security-opt label=disable \
            --name tinydns localhost/kevydotvinu/tinydns:v1
 ```
+To run the pod in background, replate --rm, --interactive and --tty with --detach.
