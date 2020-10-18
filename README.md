@@ -28,7 +28,7 @@ firewall-cmd --reload
 
 ### Clone git repository
 ```bash
-git clone https:github.com/kevydotvinu/tinyDNS
+git clone https://github.com/kevydotvinu/tinyDNS
 cd tinyDNS
 git checkout bind
 ```
