@@ -28,13 +28,14 @@ firewall-cmd --reload
 
 ### Clone git repository
 ```bash
-git clone https:github.com/kevydotvinu/tinyDNS
+git clone https://github.com/kevydotvinu/tinyDNS
 cd tinyDNS
+git checkout dnsmasq
 ```
 
 ### Build container image
 ```bash
-buildah bud --security-opt label=disable --tag localhost/kevydotvinu/tinydns:v1 .
+buildah bud --security-opt label=disable --tag localhost/kevydotvinu/tinydns:dnsmasq .
 ```
 
 ### Run container image
@@ -47,6 +48,6 @@ podman run --rm \
            --volume "$(pwd)/dnsmasq.conf:/etc/dnsmasq.conf" \
            --volume "$(pwd)/dns.conf:/etc/dnsmasq.d/dns.conf" \
            --security-opt label=disable \
-           --name tinydns localhost/kevydotvinu/tinydns:v1
+           --name tinydns localhost/kevydotvinu/tinydns:dnsmasq
 ```
 To run the pod in background, replate --rm, --interactive and --tty with --detach.
