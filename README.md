@@ -48,6 +48,7 @@ podman run --rm \
            --volume "$(pwd)/dnsmasq.conf:/etc/dnsmasq.conf" \
            --volume "$(pwd)/dns.conf:/etc/dnsmasq.d/dns.conf" \
            --security-opt label=disable \
-           --name tinydns localhost/kevydotvinu/tinydns:dnsmasq
+           --name tinydns localhost/kevydotvinu/tinydns:dnsmasq \
+	   --interface eth0
 ```
 To run the pod in background, replate --rm, --interactive and --tty with --detach.
