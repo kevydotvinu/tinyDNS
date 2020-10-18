@@ -1,0 +1,14 @@
+$TTL 300
+@ IN SOA ns1.example.com. root.example.com (
+        2016010101      ; serial
+        28800           ; refresh (8 hours)
+        7200            ; retry (2 hours)
+        2419200         ; expire (4 weeks)
+        86400           ; minimum (1 day)
+)
+                IN      NS      ns1.example.com.
+
+ns1             IN      A       192.168.100.1
+
+foo	        IN      A       192.168.100.51
+bar	        IN      A       192.168.100.52

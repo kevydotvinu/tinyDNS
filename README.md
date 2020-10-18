@@ -1,5 +1,5 @@
 # tinyDNS
-A containerized DNS server using Alpine and Dnsmasq.
+A containerized DNS server using Alpine and Bind.
 
 ## Prerequisites packages
 ```bash
@@ -30,11 +30,12 @@ firewall-cmd --reload
 ```bash
 git clone https:github.com/kevydotvinu/tinyDNS
 cd tinyDNS
+git checkout bind
 ```
 
 ### Build container image
 ```bash
-buildah bud --security-opt label=disable --tag localhost/kevydotvinu/tinydns:v1 .
+buildah bud --security-opt label=disable --tag localhost/kevydotvinu/tinydns:bind .
 ```
 
 ### Run container image
@@ -44,9 +45,9 @@ podman run --rm \
            --tty \
            --privileged \
            --net host \
-           --volume "$(pwd)/dnsmasq.conf:/etc/dnsmasq.conf" \
-           --volume "$(pwd)/dns.conf:/etc/dnsmasq.d/dns.conf" \
+           --volume "$(pwd)/named.conf:/etc/bind/named.conf" \
+           --volume "$(pwd)/file.zone:/var/lib/bind/file.zone" \
            --security-opt label=disable \
-           --name tinydns localhost/kevydotvinu/tinydns:v1
+           --name tinydns localhost/kevydotvinu/tinydns:bind
 ```
 To run the pod in background, replate --rm, --interactive and --tty with --detach.
